@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <style>
+        body { font-family: Arial; padding: 20px; background: #f7f7f7; }
+        .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .big { font-size: 24px; font-weight: bold; }
+        .green { color: green; }
+        .red { color: red; }
+        a { text-decoration: none; }
+    </style>
+</head>
+<body>
+
+<h2>📊 Dashboard</h2>
+
+<div class="grid">
+    <div class="card">
+        <p>Total Invoices</p>
+        <p class="big">{{ total_invoices }}</p>
+    </div>
+
+    <div class="card">
+        <p>Total Revenue</p>
+        <p class="big">₹{{ total_revenue }}</p>
+    </div>
+
+    <div class="card green">
+        <p>Paid Revenue</p>
+        <p class="big">₹{{ paid_revenue }}</p>
+    </div>
+
+    <div class="card red">
+        <p>Unpaid Revenue</p>
+        <p class="big">₹{{ unpaid_revenue }}</p>
+    </div>
+
+    <div class="card green">
+        <p>Paid Invoices</p>
+        <p class="big">{{ paid_count }}</p>
+    </div>
+
+    <div class="card red">
+        <p>Unpaid Invoices</p>
+        <p class="big">{{ unpaid_count }}</p>
+    </div>
+</div>
+
+<br>
+<a href="/invoices/">📄 View Invoices</a> |
+<a href="/">➕ Create Invoice</a>
+
+</body>
+</html>
