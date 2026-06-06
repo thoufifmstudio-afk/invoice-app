@@ -4,21 +4,23 @@ from datetime import date
 from .models import Invoice
 from django.db.models import Sum
 
-invoice_count = 0
-
-
 def invoice_form(request):
-    global invoice_count
 
     if request.method == "POST":
-        invoice_count += 1
 
         name = request.POST.get("name")
         email = request.POST.get("email")
         amount = request.POST.get("amount")
 
         today = date.today()
-        invoice_number = f"INV-{today.strftime('%Y%m%d')}-{invoice_count:03d}"
+
+        count = Invoice.objects.filter(
+            created_at__date=today
+        ).count() + 1
+
+        invoice_number = (
+            f"INV-{today.strftime('%Y%m%d')}-{count:03d}"
+        )
 
         invoice = Invoice.objects.create(
             invoice_number=invoice_number,
