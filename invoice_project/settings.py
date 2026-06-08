@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-+nilqj51llew1b(685e@2eb5daq@)sqn+d#!v-kkt7l9klbmhc'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [ "invoice-app-520919893407.asia-south1.run.app",
     "localhost",
