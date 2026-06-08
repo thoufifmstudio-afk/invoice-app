@@ -1,3 +1,5 @@
+from django.contrib.auth.decorators import login_required
+from django.http import HttpResponseForbidden
 from django.shortcuts import render, redirect
 from django.core.mail import send_mail
 from datetime import date
@@ -114,8 +116,12 @@ def mark_paid(request, invoice_id):
     invoice.save()
     return redirect("/invoices/")
 from django.db.models import Sum
-
+from django.http import HttpResponseForbidden
+@login_required
 def dashboard(request):
+
+    if not request.user.is_superuser:
+        return HttpResponseForbidden("Access Denied")
     total_invoices = Invoice.objects.count()
 
     total_revenue = Invoice.objects.aggregate(

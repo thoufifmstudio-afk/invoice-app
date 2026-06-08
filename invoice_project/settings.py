@@ -25,7 +25,9 @@ SECRET_KEY = 'django-insecure-+nilqj51llew1b(685e@2eb5daq@)sqn+d#!v-kkt7l9klbmhc
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [ "invoice-app-520919893407.asia-south1.run.app",
+    "localhost",
+    "127.0.0.1",]
 
 
 # Application definition
@@ -123,3 +125,4 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+LOGIN_URL = "/admin/login/"
